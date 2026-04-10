@@ -29,9 +29,15 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
 .project__name {max-width:480px;margin:8% auto 4%;font-family:Tahoma, Verdana, Arial, sans-serif;font-size:45px;color:#f0f0f0;text-align:center;}
 .project__name_shadow{text-shadow:1px 1px 2px #0f0f0f;}
 .project__list{display:inline-block;color:#f0f0f0;text-align:center;}
-.project__item{position:relative;font-family:Georgia, Times, "Times New Roman", serif;font-size:25px;line-height:1;text-align:left;color:#f0f0f0;}
+.project__item{position:relative;font-family:Georgia, Times, "Times New Roman", serif;font-size:25px;line-height:1;text-align:center;color:#f0f0f0;}
 .project__link{display:inline-block;margin-bottom:20px;color:#f0f0f0;outline:none;text-decoration:none;white-space:nowrap;border-bottom:1px solid #f0f0f0;background:none;border:none;font:inherit;cursor:pointer;}
 .project__link:hover{border-color:transparent;}
+
+/* ===== ✅ FIXES ADDED HERE ===== */
+.project__list {
+  list-style: none;
+  padding-left: 0;
+}
 </style>
 </head>
 <body>
@@ -55,7 +61,6 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
       <!-- Verse container hidden initially -->
       <li class="project__item" id="verse-container" style="display:none;">
         مزمور 46:‏1 <br>
-        
         اللهُ لَنَا مَلْجَأٌ وَقُوَّةٌ، عَوْنُهُ مُتَوَافِرٌ لَنَا دَائِماً فِي الضِّيقَاتِ
       </li>
     </ul>
@@ -63,16 +68,9 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
 </div>
 
 <script>
-// Toggle visibility of the verse and its bullet
 function showVerse() {
   var verse = document.getElementById('verse-container');
-  if (verse.style.display === 'none') {
-    verse.style.display = 'list-item';   // instead of list-item
-    verse.style.textAlign = 'center';
-    verse.style.listStyle = 'none';  // removes bullet
-  } else {
-    verse.style.display = 'none';
-  }
+  verse.style.display = (verse.style.display === 'none') ? 'list-item' : 'none';
 }
 </script>
 
