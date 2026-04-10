@@ -41,7 +41,7 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
 
 <div class="overlay overlay_dark">
   <main class="project">
-    <h1 class="project__name project__name_shadow">Your Church Guide</h1>
+    <h1 class="project__name project__name_shadow">Church Guide</h1>
 
     <ul class="project__list">
       <li class="project__item">
@@ -55,6 +55,7 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
       <!-- Verse container hidden initially -->
       <li class="project__item" id="verse-container" style="display:none;">
         مزمور 46:‏1 <br>
+        
         اللهُ لَنَا مَلْجَأٌ وَقُوَّةٌ، عَوْنُهُ مُتَوَافِرٌ لَنَا دَائِماً فِي الضِّيقَاتِ
       </li>
     </ul>
@@ -65,7 +66,13 @@ body {display:block;position:relative;overflow:hidden;text-align:center;}
 // Toggle visibility of the verse and its bullet
 function showVerse() {
   var verse = document.getElementById('verse-container');
-  verse.style.display = (verse.style.display === 'none') ? 'list-item' : 'none';
+  if (verse.style.display === 'none') {
+    verse.style.display = 'block';   // instead of list-item
+    verse.style.textAlign = 'center';
+    verse.style.listStyle = 'none';  // removes bullet
+  } else {
+    verse.style.display = 'none';
+  }
 }
 </script>
 
